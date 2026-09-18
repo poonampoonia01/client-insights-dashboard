@@ -1,0 +1,646 @@
+/* ---------------------------------------------------------------------
+   Design tokens
+   A private-ledger aesthetic for a wealth advisory book of business:
+   warm paper, quiet ink, and a muted brass accent reserved for the
+   figures and actions that matter. No card-kit shadows, no ALL-CAPS
+   chrome — structure comes from rules and alignment, like a statement.
+------------------------------------------------------------------------ */
+:root {
+  --ink: #14171c;
+  --ink-soft: #2b2e33;
+  --paper: #f7f5f1;
+  --paper-dim: #efebe3;
+  --line: #dcd7cc;
+  --brass: #a6763a;
+  --brass-dark: #8b6430;
+  --teal: #24454a;
+  --text: #23262b;
+  --text-muted: #6b6f76;
+  --danger: #b3452f;
+  --danger-dark: #8f3722;
+  --success: #3f6b4f;
+  --radius: 4px;
+  --shadow-panel: 0 1px 2px rgba(20, 23, 28, 0.06);
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+.numeral {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------------------
+   Buttons
+------------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  line-height: 1.2;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--brass);
+  color: var(--paper);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--brass-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--ink-soft);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: transparent;
+  padding: 0.35rem 0.6rem;
+}
+.btn-danger:hover:not(:disabled) {
+  background: rgba(179, 69, 47, 0.08);
+  color: var(--danger-dark);
+}
+
+.btn-danger-solid {
+  background: var(--danger);
+  color: var(--paper);
+  padding: 0.55rem 1.1rem;
+}
+.btn-danger-solid:hover:not(:disabled) {
+  background: var(--danger-dark);
+}
+
+.btn-text {
+  background: transparent;
+  border: none;
+  color: var(--brass);
+  padding: 0.35rem 0.5rem;
+  font-weight: 600;
+}
+.btn-text:hover:not(:disabled) {
+  color: var(--brass-dark);
+}
+
+/* ---------------------------------------------------------------------
+   Form fields
+------------------------------------------------------------------------ */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.field input,
+.field select {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--text);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--brass);
+}
+
+.field-error {
+  font-size: 0.78rem;
+  color: var(--danger);
+}
+
+.form-error-banner {
+  background: rgba(179, 69, 47, 0.08);
+  border: 1px solid rgba(179, 69, 47, 0.3);
+  color: var(--danger-dark);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+
+/* ---------------------------------------------------------------------
+   Auth screens (Login / Register)
+------------------------------------------------------------------------ */
+.auth-shell {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  padding: 1.5rem;
+}
+
+.auth-panel {
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-wordmark {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-switch {
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.auth-switch button {
+  background: none;
+  border: none;
+  color: var(--brass);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.auth-demo-hint {
+  margin-top: 1.25rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------------
+   App shell
+------------------------------------------------------------------------ */
+.app-header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+}
+
+.advisor-name {
+  color: var(--paper-dim);
+}
+
+.app-header .btn-ghost {
+  border-color: rgba(247, 245, 241, 0.35);
+  color: var(--paper);
+}
+.app-header .btn-ghost:hover {
+  border-color: var(--paper);
+}
+
+.dashboard-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.dashboard-title {
+  font-size: 1.6rem;
+}
+
+.dashboard-subtitle {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-top: 0.35rem;
+}
+
+/* ---------------------------------------------------------------------
+   Insights strip — a statement line, not a grid of cards
+------------------------------------------------------------------------ */
+.insights-strip {
+  display: flex;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.insight-figure {
+  flex: 1;
+  padding: 1.1rem 1.5rem;
+  border-left: 1px solid var(--line);
+}
+.insight-figure:first-child {
+  border-left: none;
+}
+
+.insight-value {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--ink);
+  display: block;
+}
+
+.insight-label {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
+  display: block;
+}
+
+.insight-split {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.15rem;
+}
+
+.insight-split span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ---------------------------------------------------------------------
+   Toolbar: search / filter / sort / add
+------------------------------------------------------------------------ */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toolbar-search {
+  flex: 1;
+  min-width: 200px;
+}
+
+.toolbar-search input {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.toolbar-search input:focus {
+  border-color: var(--brass);
+}
+
+.toolbar select {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--text);
+}
+
+/* ---------------------------------------------------------------------
+   Client ledger table
+------------------------------------------------------------------------ */
+.ledger-wrap {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+}
+
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ledger-table thead th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  padding: 0.65rem 1rem;
+  background: var(--paper-dim);
+  border-bottom: 1px solid var(--line);
+}
+
+.ledger-table th.numeric,
+.ledger-table td.numeric {
+  text-align: right;
+}
+
+.ledger-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.ledger-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ledger-table tbody tr:hover {
+  background: rgba(166, 118, 58, 0.05);
+}
+
+.client-name {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.client-email {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 0.15rem;
+}
+
+.category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.category-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.category-dot.hni {
+  background: var(--teal);
+}
+.category-dot.uhni {
+  background: var(--brass);
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.interest-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+}
+
+.row-actions {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+.empty-state {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty-state strong {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------------
+   Modal (add / edit client)
+------------------------------------------------------------------------ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 23, 28, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4vh 1.5rem;
+  overflow-y: auto;
+  z-index: 50;
+  animation: fade-in 0.15s ease;
+}
+
+.modal-panel {
+  background: var(--paper);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 560px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 32px rgba(20, 23, 28, 0.22);
+  animation: rise-in 0.18s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modal-form-grid .span-2 {
+  grid-column: 1 / -1;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.tag-input-hint {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------------
+   Confirm dialog
+------------------------------------------------------------------------ */
+.confirm-panel {
+  max-width: 380px;
+}
+
+.confirm-body {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0.75rem 0 1.5rem;
+}
+
+/* ---------------------------------------------------------------------
+   Toast (lightweight status messages)
+------------------------------------------------------------------------ */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  z-index: 60;
+}
+
+.toast.error {
+  background: var(--danger-dark);
+}
+
+/* ---------------------------------------------------------------------
+   Responsive
+------------------------------------------------------------------------ */
+@media (max-width: 720px) {
+  .insights-strip {
+    flex-direction: column;
+  }
+  .insight-figure {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+  .insight-figure:first-child {
+    border-top: none;
+  }
+  .modal-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .ledger-wrap {
+    overflow-x: auto;
+  }
+  .dashboard-main {
+    padding: 1.25rem;
+  }
+  .app-header {
+    padding: 0.9rem 1.25rem;
+  }
+}
