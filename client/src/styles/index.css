@@ -78,9 +78,8 @@ a {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------------------------------------------------------------------
-   Buttons
------------------------------------------------------------------------- */
+/* Buttons */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -149,9 +148,8 @@ a {
   color: var(--brass-dark);
 }
 
-/* ---------------------------------------------------------------------
-   Form fields
------------------------------------------------------------------------- */
+/* Form fields */
+
 .field {
   display: flex;
   flex-direction: column;
@@ -191,9 +189,7 @@ a {
   font-size: 0.85rem;
 }
 
-/* ---------------------------------------------------------------------
-   Auth screens (Login / Register)
------------------------------------------------------------------------- */
+/* Auth screens (Login / Register)  */
 .auth-shell {
   min-height: 100%;
   display: flex;
@@ -252,9 +248,8 @@ a {
   color: var(--text-muted);
 }
 
-/* ---------------------------------------------------------------------
-   App shell
------------------------------------------------------------------------- */
+/* App shell */
+
 .app-header {
   background: var(--ink);
   color: var(--paper);
@@ -307,9 +302,8 @@ a {
   margin-top: 0.35rem;
 }
 
-/* ---------------------------------------------------------------------
-   Insights strip — a statement line, not a grid of cards
------------------------------------------------------------------------- */
+/* Insights strip — a statement line, not a grid of cards */
+
 .insights-strip {
   display: flex;
   border-top: 1px solid var(--line);
@@ -353,9 +347,8 @@ a {
   gap: 0.4rem;
 }
 
-/* ---------------------------------------------------------------------
-   Toolbar: search / filter / sort / add
------------------------------------------------------------------------- */
+/* Toolbar: search / filter / sort / add */
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -388,9 +381,8 @@ a {
   color: var(--text);
 }
 
-/* ---------------------------------------------------------------------
-   Client ledger table
------------------------------------------------------------------------- */
+/* Client ledger table */
+
 .ledger-wrap {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -509,9 +501,8 @@ a {
   color: var(--text-muted);
 }
 
-/* ---------------------------------------------------------------------
-   Modal (add / edit client)
------------------------------------------------------------------------- */
+/* Modal (add / edit client) */
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -584,9 +575,8 @@ a {
   color: var(--text-muted);
 }
 
-/* ---------------------------------------------------------------------
-   Confirm dialog
------------------------------------------------------------------------- */
+/* Confirm dialog */
+
 .confirm-panel {
   max-width: 380px;
 }
@@ -597,9 +587,8 @@ a {
   margin: 0.75rem 0 1.5rem;
 }
 
-/* ---------------------------------------------------------------------
-   Toast (lightweight status messages)
------------------------------------------------------------------------- */
+/* Toast (lightweight status messages) */
+
 .toast {
   position: fixed;
   bottom: 1.5rem;
@@ -617,9 +606,8 @@ a {
   background: var(--danger-dark);
 }
 
-/* ---------------------------------------------------------------------
-   Responsive
------------------------------------------------------------------------- */
+/* Responsive */
+
 @media (max-width: 720px) {
   .insights-strip {
     flex-direction: column;
