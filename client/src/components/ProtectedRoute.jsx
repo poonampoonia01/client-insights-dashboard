@@ -6,7 +6,7 @@ export default function ProtectedRoute({ children }) {
   const { advisor, loading } = useAuth();
 
   if (loading) {
-    return null; // brief and unobtrusive; avoids a flash of the login screen
+    return null;
   }
 
   if (!advisor) {
